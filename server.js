@@ -6,8 +6,13 @@ require("dotenv").config();
 
 const app = express();
 app.use(cors());
+app.use(express.json());
 
 const DEEZER_API_URL = process.env.DEEZER_API_URL || "https://api.deezer.com";
+
+app.get("/", (req, res) => {
+  res.send("Backend is running on Render!");
+});
 
 app.get("/api/deezer/chart", async (req, res) => {
   try {
