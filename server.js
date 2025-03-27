@@ -60,7 +60,7 @@ app.get("/api/youtube", async (req, res) => {
       return res.status(400).json({ error: "Missing song or artist query" });
     }
 
-    const query = `${song} ${artist} audio`;
+    const query = `${song} ${artist}`;
     const youtubeUrl = await getYouTubeUrl(query);
 
     if (youtubeUrl) {
